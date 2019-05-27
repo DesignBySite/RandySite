@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Metro';
+  src: url(assets/fonts/Metro.otf) format('opentype');
+}
+@font-face {
+  font-family: 'Comic Sans';
+  src: url(assets/fonts/ComicSansMS.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Arial Narrow';
+  src: url(assets/fonts/ArialNarrow.ttf) format('truetype');
+}
+
+
+$metro: 'Metro';
+$comicSans: 'Comic Sans';
+$arialNarrow: 'Arial Narrow';
+$proxima: "proxima-nova";

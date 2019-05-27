@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="main.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script type="module" src="./assets/script-compiled.js"></script>
+    <style>
+    @import url("https://use.typekit.net/pkl6pip.css");
+    </style>
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <nav class="landing-nav">
+      <img src="./assets/images/Superhuman Fitness.png" alt="" srcset="">
+    </nav>
+    <main class="landing-main-grid">
+      <div class="landing-text">
+        <p>Coming Soon!</p>
+        <h1 class="landing-h1">superhumans in development...</h1>
+        <p>Join us in discovering new abilities and keep in tune with new developments in unlocking your inner super human</p>
+      </div>
+      <form class="landing-form" id="form">
+        <div>
+          <label for="first">First Name</label>
+          <input 
+            type="text" 
+            name="first-name"
+            placeholder="First name"
+            id="first-name">
+        </div>
+        <div>
+          <label for="email">Your email address</label>
+          <input 
+            type="email" 
+            name="email" 
+            placeholder="Your email address"
+            id="email">
+        </div>
+        <div id="submit-div">
+          <div class="g-recaptcha" data-sitekey="6Lf_A6UUAAAAALauF8k6bNd4Fe7bjm-E5BWrTgY_"></div>
+          <input id="submit" type="submit" name="submit" form="form" onclick="mailer()" value="Submit">
+        </div>
+      </form>
+      <div class="landing-images">
+        <img src="./assets/images/Mind Graphic.png" alt="" srcset="">
+        <img src="./assets/images/Body Graphic.png" alt="" srcset="">
+        <img src="./assets/images/Nutrition Graphic.png" alt="" srcset="">
+      </div>
+    </main>
+    <footer class="landing-footer">
+      <p>Copyright@2019 Anthrofitness, LLC</p>
+    </footer>
+  </body>
+</html>
