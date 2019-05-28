@@ -155,7 +155,8 @@ body {
   }
 }
 .success-text {
-  transform: translateY(100px);
+  transform: translateY(200px);
+  position: absolute;
 }
 .g-recaptcha {
   margin: 0 auto;

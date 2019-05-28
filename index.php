@@ -11,7 +11,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="main.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script type="module" src="./assets/script-compiled.js"></script>
     <style>
     @import url("https://use.typekit.net/pkl6pip.css");
     </style>
@@ -29,7 +28,7 @@
         <h1 class="landing-h1">superhumans in development...</h1>
         <p>Join us in discovering new abilities and keep in tune with new developments in unlocking your inner super human</p>
       </div>
-      <form class="landing-form" id="form">
+      <form class="landing-form" action="?" method="post" id="form">
         <div>
           <label for="first">First Name</label>
           <input 
@@ -48,8 +47,77 @@
         </div>
         <div id="submit-div">
           <div class="g-recaptcha" data-sitekey="6Lf_A6UUAAAAALauF8k6bNd4Fe7bjm-E5BWrTgY_"></div>
-          <input id="submit" type="submit" name="submit" form="form" onclick="mailer()" value="Submit">
+          <input id="submit" type="submit" name="submit" form="form" value="Submit">
         </div>
+        
+        <!-- error_reporting(-1);
+           ini_set('display_errors', 'On');
+           // set_error_handler("var_dump"); -->
+         <?php
+    $secretKey = "6Lf_A6UUAAAAAAiOw86YBUP_ErvTrPXFdGT9i2UF";
+    $responseKey = $_POST['g-recaptcha-response'];
+    $userIP = $_SERVER['REMOTE_ADDR'];
+
+    $name = $_POST['first-name']; // required
+    $from = $_POST['email']; // required
+    $subject = "New interest in Superhuman Fitness";
+    $to="contact@superhumanfitness.net";
+    $headers="MIME-VERSION: 1.0" . "\r\n";
+    $headers.="Content-type:text/html;charset=UTF-8" . "\r\n" .
+        'X-Mailer: PHP/' . phpversion();
+    $error_message = "";
+    $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
+
+
+
+if (isset($_POST['submit'])) {
+
+    $url = "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$responseKey&remoteip=$userIP";
+
+    $response = file_get_contents($url);
+    $obj = json_decode($response);
+    if($obj == true){
+
+        if(!preg_match($email_exp,$from)) {
+            $error_message .= 'The Email Address you entered does not appear to be valid.<br />';
+            }
+
+        $string_exp = "/^[A-Za-z .'-]+$/";
+
+        if(!preg_match($string_exp,$subject)) {
+            $error_message .= 'The Subject you entered does not appear to be valid.<br />';
+            }
+
+        if(strlen($error_message) > 0) {
+            died($error_message);
+            }
+
+        $email_message = "Form details below.\n";
+
+
+        function clean_string($string) {
+            $bad = array("content-type","bcc:","to:","cc:","href");
+            return str_replace($bad,"",$string);
+            }
+
+
+
+        $email_message .= "Name: ".clean_string($name)."\n";
+        $email_message .= "Email: ".clean_string($from)."\n";
+
+        if(mail($to,$subject,$email_message,$headers)) {
+            echo '<p class="success-text">Thanks For reaching out!<p>';
+        }
+        else {
+            echo '<p class="success-text">Failed to send email</p>';
+        }
+    }
+
+    if($obj == false){
+        echo '<p class="success-text">Obj false failed to send email</p>';
+    }
+}
+    ?>
       </form>
       <div class="landing-images">
         <img src="./assets/images/Mind Graphic.png" alt="" srcset="">

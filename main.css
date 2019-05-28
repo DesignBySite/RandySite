@@ -1,0 +1,332 @@
+html {
+  font-size: 62.5%; }
+
+body {
+  font-size: 24rem; }
+
+/*
+	HTML5 Reset :: style.css
+	----------------------------------------------------------
+	We have learned much from/been inspired by/taken code where offered from:
+	Eric Meyer					:: http://meyerweb.com
+	HTML5 Doctor				:: http://html5doctor.com
+	and the HTML5 Boilerplate	:: http://html5boilerplate.com
+-------------------------------------------------------------------------------*/
+/* Let's default this puppy out
+-------------------------------------------------------------------------------*/
+body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, menu, nav, section, time, mark, audio, video, details, summary {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 1.6rem;
+  font-weight: normal;
+  vertical-align: baseline;
+  background: transparent;
+  line-height: 1.5; }
+
+main, article, aside, figure, footer, header, nav, section, details, summary {
+  display: block; }
+
+/* Handle box-sizing while better addressing child elements:
+   http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+html {
+  box-sizing: border-box; }
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit; }
+
+/* consider resetting the default cursor: https://gist.github.com/murtaugh/5247154 */
+/* Responsive images and other embedded objects */
+/* if you don't have full control over `img` tags (if you have to overcome attributes), consider adding height: auto */
+img,
+object,
+embed {
+  max-width: 100%; }
+
+/*
+   Note: keeping IMG here will cause problems if you're using foreground images as sprites.
+	In fact, it *will* cause problems with Google Maps' controls at small size.
+	If this is the case for you, try uncommenting the following:
+#map img {
+		max-width: none;
+}
+*/
+/* force a vertical scrollbar to prevent a jumpy page */
+html {
+  overflow-y: scroll; }
+
+/* we use a lot of ULs that aren't bulleted.
+	you'll have to restore the bullets within content,
+	which is fine because they're probably customized anyway */
+ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none; }
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
+del {
+  text-decoration: line-through; }
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted #000;
+  cursor: help; }
+
+/* tables still need cellspacing="0" in the markup */
+table {
+  border-collapse: separate;
+  border-spacing: 0; }
+
+th {
+  font-weight: bold;
+  vertical-align: bottom; }
+
+td {
+  font-weight: normal;
+  vertical-align: top; }
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0; }
+
+input, select {
+  vertical-align: middle; }
+
+pre {
+  white-space: pre;
+  /* CSS2 */
+  white-space: pre-wrap;
+  /* CSS 2.1 */
+  white-space: pre-line;
+  /* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word;
+  /* IE */ }
+
+input[type="radio"] {
+  vertical-align: text-bottom; }
+
+input[type="checkbox"] {
+  vertical-align: bottom; }
+
+.ie7 input[type="checkbox"] {
+  vertical-align: baseline; }
+
+.ie6 input {
+  vertical-align: text-bottom; }
+
+select, input, textarea {
+  font: 99% sans-serif; }
+
+table {
+  font-size: inherit;
+  font: 100%; }
+
+small {
+  font-size: 85%; }
+
+strong {
+  font-weight: bold; }
+
+td, td img {
+  vertical-align: top; }
+
+/* Make sure sup and sub don't mess with your line-heights http://gist.github.com/413930 */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+/* standardize any monospaced elements */
+pre, code, kbd, samp {
+  font-family: monospace, sans-serif; }
+
+/* hand cursor on clickable elements */
+.clickable,
+label,
+input[type=button],
+input[type=submit],
+input[type=file],
+button {
+  cursor: pointer; }
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea {
+  margin: 0; }
+
+/* make buttons play nice in IE */
+button,
+input[type=button] {
+  width: auto;
+  overflow: visible; }
+
+/* scale images in IE7 more attractively */
+.ie7 img {
+  -ms-interpolation-mode: bicubic; }
+
+/* prevent BG image flicker upon hover
+   (commented out as usage is rare, and the filter syntax messes with some pre-processors)
+.ie6 html {filter: expression(document.execCommand("BackgroundImageCache", false, true));}
+*/
+/* let's clear some floats */
+.clearfix:after {
+  content: " ";
+  display: block;
+  clear: both; }
+
+@font-face {
+  font-family: 'Metro';
+  src: url(assets/fonts/Metro.otf) format("opentype"); }
+@font-face {
+  font-family: 'Comic Sans';
+  src: url(assets/fonts/ComicSansMS.ttf) format("truetype"); }
+@font-face {
+  font-family: 'Arial Narrow';
+  src: url(assets/fonts/ArialNarrow.ttf) format("truetype"); }
+body {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 6rem 1fr 4rem; }
+
+.landing-nav {
+  display: grid;
+  grid-template-columns: 5% repeat(2, 1fr) 5%;
+  grid-template-areas: ". img . .";
+  padding: .8rem; }
+  .landing-nav img {
+    grid-area: img;
+    align-self: center;
+    object-fit: contain;
+    width: 10rem;
+    height: 100%; }
+.landing-main-grid {
+  display: grid;
+  grid-template-columns: 5% repeat(2, 1fr) 5%;
+  grid-template-areas: ". text images ." ". form images ."; }
+  @media (max-width: 750px) {
+    .landing-main-grid {
+      grid-template-columns: 5% 1fr 5%;
+      grid-template-areas: ". text ." ". form ."; } }
+.landing-h1 {
+  font-family: copperplate, serif;
+  font-weight: 700;
+  font-size: 3.4rem;
+  color: #1119bc;
+  line-height: 1.5; }
+  @media (max-width: 500px) {
+    .landing-h1 {
+      font-size: 2.4rem; } }
+.landing-text {
+  width: 60rem;
+  grid-area: text;
+  display: grid;
+  align-content: center;
+  grid-row-gap: 1.5rem; }
+  @media (max-width: 1000px) {
+    .landing-text {
+      width: auto; } }
+  .landing-text p {
+    font-size: 1.8rem;
+    font-family: "proxima-nova"; }
+    .landing-text p:first-of-type {
+      font-weight: bold; }
+.landing-form {
+  justify-self: center;
+  width: 20rem;
+  grid-area: form;
+  display: grid;
+  grid-template-rows: repeat(3, 3.4rem);
+  grid-row-gap: 1rem; }
+  @media (max-width: 500px) {
+    .landing-form {
+      justify-self: start;
+      width: 100%; } }
+  .landing-form * {
+    font-family: "Comic Sans"; }
+  .landing-form div {
+    display: grid; }
+  .landing-form label {
+    display: none; }
+  .landing-form input#email, .landing-form input#first-name {
+    background-color: #e8e6e7;
+    color: #1119bc;
+    border: none;
+    border-radius: 3rem;
+    height: 100%;
+    transition: all .2s;
+    padding: .2rem 1.5rem;
+    text-align: center; }
+    .landing-form input#email::placeholder, .landing-form input#first-name::placeholder {
+      opacity: 1; }
+    .landing-form input#email:focus::placeholder, .landing-form input#first-name:focus::placeholder {
+      opacity: .2; }
+  .landing-form input#submit {
+    background-color: #1119bc;
+    color: white;
+    justify-self: center;
+    border: none;
+    box-shadow: -0.1rem 0.1rem 0.6rem rgba(0, 0, 0, 0.575);
+    border-radius: 3rem;
+    width: 8rem; }
+.landing-images {
+  padding-left: 2.5rem;
+  grid-area: images;
+  display: grid; }
+  @media (max-width: 750px) {
+    .landing-images {
+      display: none; } }
+  .landing-images img:nth-of-type(1n) {
+    justify-self: center;
+    transform: translateY(20%) translateX(20%); }
+  .landing-images img:nth-of-type(2n) {
+    justify-self: start;
+    transform: translateX(-20%); }
+  .landing-images img:nth-of-type(3n) {
+    justify-self: end;
+    transform: translateY(-50%); }
+.landing-footer {
+  background-color: #b00003;
+  color: white;
+  display: grid;
+  grid-template-columns: 5% repeat(2, 1fr) 5%; }
+  .landing-footer p:first-of-type {
+    font-family: "Arial Narrow";
+    text-transform: uppercase;
+    grid-column: 2/4;
+    align-self: center; }
+
+.success-text {
+  transform: translateY(200px);
+  position: absolute; }
+
+.g-recaptcha {
+  margin: 0 auto; }
+
+#submit-div {
+  grid-row-gap: 10px; }
+
+/*# sourceMappingURL=main.css.map */
