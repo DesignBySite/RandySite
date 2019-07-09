@@ -11,6 +11,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="main.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+      var verifiedCaptcha = function() {
+        document.querySelector("#_honey").remove();
+        document.querySelector("#submit").classList.remove('not-active');
+      }
+    </script>
     <style>
     @import url("https://use.typekit.net/pkl6pip.css");
     </style>
@@ -35,7 +41,8 @@
             type="text" 
             name="first-name"
             placeholder="First name"
-            id="first-name">
+            id="first-name"
+            required>
         </div>
         <div>
           <label for="email">Your email address</label>
@@ -43,16 +50,18 @@
             type="email" 
             name="email" 
             placeholder="Your email address"
-            id="email">
+            id="email"
+            required>
         </div>
         <div id="submit-div">
-          <div class="g-recaptcha" data-sitekey="6Lf_A6UUAAAAALauF8k6bNd4Fe7bjm-E5BWrTgY_"></div>
-          <input id="submit" type="submit" name="submit" form="form" value="Submit">
+          <div class="g-recaptcha" data-callback="verifiedCaptcha" data-sitekey="6Lf_A6UUAAAAALauF8k6bNd4Fe7bjm-E5BWrTgY_"></div>
+          <div class="submit" id="_honey"><span>Submit</span></div>
+          <input id="submit" type="submit" class="submit not-active" name="submit" form="form" value="Submit">
         </div>
         
         <!-- error_reporting(-1);
            ini_set('display_errors', 'On');
-           // set_error_handler("var_dump"); -->
+           set_error_handler("var_dump"); -->
          <?php
     $secretKey = "6Lf_A6UUAAAAAAiOw86YBUP_ErvTrPXFdGT9i2UF";
     $responseKey = $_POST['g-recaptcha-response'];

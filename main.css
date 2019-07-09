@@ -284,14 +284,15 @@ body {
       opacity: 1; }
     .landing-form input#email:focus::placeholder, .landing-form input#first-name:focus::placeholder {
       opacity: .2; }
-  .landing-form input#submit {
+  .landing-form .submit {
     background-color: #1119bc;
     color: white;
     justify-self: center;
     border: none;
     box-shadow: -0.1rem 0.1rem 0.6rem rgba(0, 0, 0, 0.575);
     border-radius: 3rem;
-    width: 8rem; }
+    width: 8rem;
+    text-align: center; }
 .landing-images {
   padding-left: 2.5rem;
   grid-area: images;
@@ -328,5 +329,10 @@ body {
 
 #submit-div {
   grid-row-gap: 10px; }
+
+.not-active {
+  display: none;
+  visibility: hidden;
+  cursor: not-allowed; }
 
 /*# sourceMappingURL=main.css.map */

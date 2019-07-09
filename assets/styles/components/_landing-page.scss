@@ -106,7 +106,7 @@ body {
       }
     }
 
-    & input#submit {
+    & .submit {
       background-color: $blue;
       color: white;
       justify-self: center;
@@ -114,6 +114,7 @@ body {
       box-shadow: -.1rem .1rem .6rem rgba(0, 0, 0, 0.575);
       border-radius: 3rem;
       width: 8rem;
+      text-align: center;
     }
   }
   &-images {
@@ -163,4 +164,10 @@ body {
 }
 #submit-div {
   grid-row-gap: 10px;
+}
+
+.not-active {
+  display: none;
+  visibility: hidden;
+  cursor: not-allowed;
 }
